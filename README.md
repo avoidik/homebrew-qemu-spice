@@ -3,6 +3,7 @@
 ## installation
 
 ```terminal
+$ brew unlink qemu
 $ brew tap avoidik/qemu-spice
 $ brew install qemu-spice
 ```

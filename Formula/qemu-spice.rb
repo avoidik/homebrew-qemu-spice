@@ -1,4 +1,4 @@
-class Qemu < Formula
+class QemuSpice < Formula
   desc "Generic machine emulator and virtualizer"
   homepage "https://www.qemu.org/"
   url "https://download.qemu.org/qemu-9.0.0.tar.xz"
@@ -66,6 +66,7 @@ class Qemu < Formula
       --enable-curses
       --enable-fdt=system
       --enable-libssh
+      --enable-spice
       --enable-vde
       --enable-virtfs
       --enable-zstd

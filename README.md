@@ -18,3 +18,7 @@ credits to @mmartial
 based on https://github.com/anholt/libepoxy/pull/239
 
 credits to @akihikodaki
+
+based on https://github.com/akihikodaki/virglrenderer/tree/macos
+
+credits to @akihikodaki

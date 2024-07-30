@@ -1,8 +1,9 @@
 class SpiceServer < Formula
   desc "Spice-Server"
   homepage "https://www.spice-space.org/"
-  url "https://gitlab.freedesktop.org/spice/spice/uploads/29ef6b318d554e835a02e2141f888437/spice-0.15.2.tar.bz2"
-  sha256 "6d9eb6117f03917471c4bc10004abecff48a79fb85eb85a1c45f023377015b81"
+  version "0.15.2"
+  url "https://gitlab.freedesktop.org/spice/spice/-/archive/v#{version}/spice-v#{version}.tar.bz2"
+  sha256 "5b0a4af620565fde831eed69fc485f2aa0a01283d05d254a4c0f388128c6a162"
   head "https://gitlab.freedesktop.org/spice/spice.git", branch: "master"
 
   depends_on "libtool" => :build
@@ -32,11 +33,21 @@ class SpiceServer < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "attr"
+    depends_on "cairo"
+    depends_on "elfutils"
+    depends_on "gdk-pixbuf"
     depends_on "gtk+3"
     depends_on "libcap-ng"
+    depends_on "libepoxy"
+    depends_on "libx11"
+    depends_on "libxkbcommon"
+    depends_on "mesa"
+    depends_on "systemd"
   end
 
   fails_with gcc: "5"

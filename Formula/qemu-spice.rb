@@ -1,8 +1,8 @@
 class QemuSpice < Formula
   desc "Generic machine emulator and virtualizer"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-9.0.0.tar.xz"
-  sha256 "32708ac66c30d8c892633ea968c771c1c76d597d70ddead21a0d22ccf386da69"
+  url "https://download.qemu.org/qemu-9.0.2.tar.xz"
+  sha256 "a8c3f596aece96da3b00cafb74baafa0d14515eafb8ed1ee3f7f5c2d0ebf02b6"
   license "GPL-2.0-only"
   head "https://gitlab.com/qemu-project/qemu.git", branch: "master"
 
@@ -37,20 +37,24 @@ class QemuSpice < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "attr"
+    depends_on "cairo"
+    depends_on "elfutils"
+    depends_on "gdk-pixbuf"
     depends_on "gtk+3"
     depends_on "libcap-ng"
+    depends_on "libepoxy"
+    depends_on "libx11"
+    depends_on "libxkbcommon"
+    depends_on "mesa"
+    depends_on "systemd"
   end
 
   fails_with gcc: "5"
-
-  # 820KB floppy disk image file of FreeDOS 1.2, used to test QEMU
-  resource "homebrew-test-image" do
-    url "https://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/distributions/1.2/official/FD12FLOPPY.zip"
-    sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
-  end
 
   def install
     ENV["LIBTOOL"] = "glibtool"
@@ -92,6 +96,12 @@ class QemuSpice < Formula
   end
 
   test do
+    # 820KB floppy disk image file of FreeDOS 1.2, used to test QEMU
+    resource "homebrew-test-image" do
+      url "https://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/distributions/1.2/official/FD12FLOPPY.zip"
+      sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
+    end
+
     expected = build.stable? ? version.to_s : "QEMU Project"
     archs = %w[
       aarch64 alpha arm cris hppa i386 m68k microblaze microblazeel mips

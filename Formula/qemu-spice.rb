@@ -18,6 +18,7 @@ class QemuSpice < Formula
   depends_on "spice-protocol" => :build
   depends_on "spice-server" => :build
   depends_on "libepoxy-egl" => :build
+  depends_on "virglrenderer" => :build
 
   depends_on "capstone"
   depends_on "dtc"
@@ -73,6 +74,7 @@ class QemuSpice < Formula
       --enable-libssh
       --enable-spice
       --enable-opengl
+      --enable-virglrenderer
       --enable-vde
       --enable-virtfs
       --enable-zstd

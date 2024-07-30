@@ -23,7 +23,7 @@ class LibepoxyEgl < Formula
   {
     "https://patch-diff.githubusercontent.com/raw/anholt/libepoxy/pull/239.diff" => "d687d04d7fa63e1b6a3e4e4c8fe0de1dcfc4574aeff4f13b3a79ee23129c6ad4",
   }.each do |url, sha|
-    patch :p0 do
+    patch :p1 do
       url url
       sha256 sha
     end

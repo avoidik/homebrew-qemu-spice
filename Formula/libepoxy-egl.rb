@@ -1,6 +1,7 @@
 class LibepoxyEgl < Formula
   desc "Library for handling OpenGL function pointer management (with ANGLE patch applied)"
   homepage "https://github.com/anholt/libepoxy"
+  head "https://github.com/anholt/libepoxy.git", branch: "master"
   url "https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.10.tar.xz"
   sha256 "072cda4b59dd098bba8c2363a6247299db1fa89411dc221c8b81b8ee8192e623"
   license "MIT"

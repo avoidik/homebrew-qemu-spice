@@ -16,10 +16,7 @@ class LibepoxyEgl < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-
-  on_linux do
-    depends_on "freeglut"
-  end
+  depends_on "freeglut"
 
   {
     "https://patch-diff.githubusercontent.com/raw/anholt/libepoxy/pull/239.diff" => "d687d04d7fa63e1b6a3e4e4c8fe0de1dcfc4574aeff4f13b3a79ee23129c6ad4",

@@ -30,6 +30,8 @@ class LibepoxyEgl < Formula
     end
   end
 
+  patch :DATA
+
   conflicts_with cask: [
     "libepoxy",
   ]
@@ -78,3 +80,17 @@ class LibepoxyEgl < Formula
     system "./test"
   end
 end
+__END__
+diff --git a/meson.build b/meson.build
+index 7d85265..eb0ff83 100644
+--- a/meson.build
++++ b/meson.build
+@@ -43,7 +43,7 @@ endif
+ 
+ enable_egl = get_option('egl')
+ if enable_egl == 'auto'
+-  build_egl = not ['windows', 'darwin'].contains(host_system)
++  build_egl = not ['windows'].contains(host_system)
+ else
+   build_egl = enable_egl == 'yes'
+ endif

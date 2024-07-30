@@ -73,6 +73,7 @@ class QemuSpice < Formula
       --enable-libssh
       --enable-spice
       --enable-opengl
+      --enable-virglrenderer
       --enable-vde
       --enable-virtfs
       --enable-zstd

@@ -17,6 +17,7 @@ class QemuSpice < Formula
   depends_on "pkg-config" => :build
   depends_on "spice-protocol" => :build
   depends_on "spice-server" => :build
+  depends_on "libepoxy-egl" => :build
 
   depends_on "capstone"
   depends_on "dtc"
@@ -71,6 +72,7 @@ class QemuSpice < Formula
       --enable-fdt=system
       --enable-libssh
       --enable-spice
+      --enable-opengl
       --enable-vde
       --enable-virtfs
       --enable-zstd

@@ -6,6 +6,7 @@
 $ brew unlink qemu
 $ brew tap avoidik/qemu-spice
 $ brew install libepoxy-egl --HEAD
+$ brew install virglrenderer --HEAD
 $ brew install qemu-spice
 ```
 

@@ -1,8 +1,8 @@
 class QemuSpice < Formula
   desc "Generic machine emulator and virtualizer"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-9.0.2.tar.xz"
-  sha256 "a8c3f596aece96da3b00cafb74baafa0d14515eafb8ed1ee3f7f5c2d0ebf02b6"
+  url "https://download.qemu.org/qemu-10.2.0.tar.xz"
+  sha256 "9e30ad1b8b9f7b4463001582d1ab297f39cfccea5d08540c0ca6d6672785883a"
   license "GPL-2.0-only"
   head "https://gitlab.com/qemu-project/qemu.git", branch: "master"
 
@@ -58,8 +58,18 @@ class QemuSpice < Formula
 
   fails_with gcc: "5"
 
+  resource "tomli" do
+    url "https://files.pythonhosted.org/packages/52/ed/3f73f72945444548f33eba9a87fc7a6e969915e7b1acc8260b30e1f76a2f/tomli-2.3.0.tar.gz"
+    sha256 "64be704a875d2a59753d80ee8a533c3fe183e3f06807ff7dc2232938ccb01549"
+  end
+
   def install
     ENV["LIBTOOL"] = "glibtool"
+
+    # Install Python dependencies to user site-packages
+    resource("tomli").stage do
+      system "python3", "-m", "pip", "install", "--user", "."
+    end
 
     args = %W[
       --prefix=#{prefix}

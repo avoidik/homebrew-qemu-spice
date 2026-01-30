@@ -18,7 +18,7 @@ class LibepoxyEgl < Formula
   depends_on "pkg-config" => :build
 
   {
-    "https://patch-diff.githubusercontent.com/raw/anholt/libepoxy/pull/311.diff" => "c174c0744d40e4b28026b9ea004660aec3617bd4108b85860bb34fbe5fe9f806",
+    "https://patch-diff.githubusercontent.com/raw/anholt/libepoxy/pull/311.diff" => "4fb743ec5412ab98f06e38e55ad651d7b953d052e357548c836c3578cb8eb78c",
     "https://patch-diff.githubusercontent.com/raw/anholt/libepoxy/pull/312.diff" => "22badd396a7960931e15a3fccf8d26bf422ccef16da0e70426403db32e1c99d2",
     "https://patch-diff.githubusercontent.com/raw/anholt/libepoxy/pull/314.diff" => "7aca7c2206da5aaa7f5b636f34189cb98cefee8f0608fe6b7e7c0c8aff018f5e",
   }.each do |url, sha|
